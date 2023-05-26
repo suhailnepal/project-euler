@@ -7,6 +7,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -20,7 +21,10 @@ func main() {
 		n, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 		checkError(err)
 		sum := febonacciSum(int(n))
+		start := time.Now()
 		fmt.Println(sum)
+		fmt.Printf("Time taken: %v\n", time.Since(start))
+
 	}
 }
 
@@ -34,13 +38,13 @@ func febonacciSum(N int) (sum int) {
 	sum = 0
 
 	for curr <= N {
-		// Generate the next term by adding the previous two term
-		// Note we need to add before re-assigning
-
 		// Add the current term to the sum if it is even
 		if curr%2 == 0 {
 			sum += curr
 		}
+
+		// Generate the next term by adding the previous two term
+		// Note we need to add before re-assigning
 		next := prev + curr
 		prev = curr
 		curr = next
