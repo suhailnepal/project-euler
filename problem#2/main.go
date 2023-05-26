@@ -10,6 +10,9 @@ import (
 	"time"
 )
 
+// Time complexity: O(t) * O(logN) = O(t * LogN)
+// Space complexity: O(1)
+
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
@@ -17,6 +20,7 @@ func main() {
 	checkError(err)
 	t := int32(tTemp)
 
+	// O(t)
 	for tItr := 0; tItr < int(t); tItr++ {
 		n, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 		checkError(err)
@@ -37,6 +41,7 @@ func febonacciSum(N int) (sum int) {
 	// initial sum to be 0
 	sum = 0
 
+	// O(logN)
 	for curr <= N {
 		// Add the current term to the sum if it is even
 		if curr%2 == 0 {

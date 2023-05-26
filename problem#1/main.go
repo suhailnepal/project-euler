@@ -9,14 +9,16 @@ import (
 	"strings"
 )
 
+// Time complexity: O(t) * O(1) = O(t)
+// Space complexity: O(1)
+
 func main() {
-	// O(t)
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
 	tTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 	checkError(err)
 	t := int32(tTemp)
-
+	// O(t)
 	for tItr := 0; tItr < int(t); tItr++ {
 		nTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 		checkError(err)
