@@ -32,7 +32,7 @@ func calculateLargestPrimeNumber(N int) int {
 	// Declaring a number as prime first
 	maxPrime := 0
 	// O(N)
-	for i := 2; i <= N; i++ {
+	for i := 3; i <= N; i++ {
 		//  To be prime, the number must not be divisible and should be divisible
 		//  by itself and 1
 		if N%i == 0 {
@@ -41,7 +41,7 @@ func calculateLargestPrimeNumber(N int) int {
 		}
 	}
 
-	if N > 1 {
+	if N > 2 {
 		maxPrime = N
 	}
 
